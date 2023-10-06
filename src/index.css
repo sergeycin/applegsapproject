@@ -57,6 +57,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #webgi-canvas-container .button {
+
   background: #0071e3;
   color: #fff;
   cursor: pointer;
@@ -69,11 +70,16 @@ body::-webkit-scrollbar-thumb {
   border-radius: 980px;
   position: absolute;
   top: 30px;
-  border: none;
+  border: 1px solid #0071e3;
   z-index: 1;
   transition-duration: 0.3s;
+  outline: none;
 }
-
+#webgi-canvas-container .button:focus { outline: none; }
+#webgi-canvas-container .button:active {
+  outline: none;
+  border: none;
+}
 .display-section.wrapper {
   margin-left: auto;
   margin-right: auto;

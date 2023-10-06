@@ -60,9 +60,9 @@ const WebgiViewer = forwardRef((props,ref) =>{
     }));
 
     const memorizedScrollAnimation = useCallback(
-        (position, target, onUpdate) =>{
+        (position, target,isMobileorTablet, onUpdate) =>{
             if(position && target && onUpdate){
-                scrollAnimation(position, target, onUpdate)
+                scrollAnimation(position, target, isMobileorTablet, onUpdate)
             }
         }, []
     )
@@ -137,7 +137,7 @@ const WebgiViewer = forwardRef((props,ref) =>{
             }
             camera.positionTargetUpdated(true)
         })
-        memorizedScrollAnimation(position,target,onUpdate)
+        memorizedScrollAnimation(position,target,isMobileorTablet,onUpdate)
     }, []);
 
     useEffect(() => {
@@ -152,9 +152,9 @@ const WebgiViewer = forwardRef((props,ref) =>{
         setPreviewMode(false)
 
         gsap.to(positionRef,{
-            x: 1.56,
-            y: 5.0,
-            z: 0.011,
+            x:!isMobile ? 1.56 : 9.36,
+            y: !isMobile ? 5.0 : 10.95,
+            z: !isMobile ? 0.011 :0.09,
             scrollTrigger: {
                  trigger: '.display-section',
                  start: 'top bottom',
